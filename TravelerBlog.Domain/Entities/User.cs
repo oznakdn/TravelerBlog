@@ -13,7 +13,7 @@ namespace TravelerBlog.Domain.Entities
 
         public string Firstname { get; set; }
         public string Lastname { get; set; }
-        public LocationPicture Picture { get; set; }
+        public UserPicture UserPicture { get; set; }
 
         public ICollection<Post> Posts { get; set; }
         public ICollection<Advice> Advices { get; set; }

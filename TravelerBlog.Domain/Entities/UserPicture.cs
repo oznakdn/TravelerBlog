@@ -11,7 +11,9 @@ namespace TravelerBlog.Domain.Entities
         public override Guid Id { get ; set ; }
         public string FileName { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-        public Guid UserId { get; set; }
+
+        [ForeignKey("User")]
+        public string UserId { get; set; }
         public User User { get; set; }
 
         public override string? Description { get; set; }
