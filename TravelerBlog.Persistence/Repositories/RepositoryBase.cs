@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-using TravelerBlog.Core.Entity;
-using TravelerBlog.Core.Repository;
-using TravelerBlog.Persistence.Data;
-
+﻿
 namespace TravelerBlog.Persistence.Repository
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : EntityBase
