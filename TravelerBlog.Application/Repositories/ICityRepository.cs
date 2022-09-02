@@ -5,6 +5,6 @@ namespace TravelerBlog.Application.Repositories
 {
     public interface ICityRepository:IRepositoryBase<City>
     {
-    {
+    
     }
 }
