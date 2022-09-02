@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using TravelerBlog.Core.Entity;
 using TravelerBlog.Core.Repository;
 using TravelerBlog.Persistence.Data;
@@ -14,44 +15,114 @@ namespace TravelerBlog.Persistence.Repository
             _context = context;
         }
 
-        public Task<T> AddAsync(T entity)
+        public async Task<T> AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Added;
+            await _context.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<T> AddRangeAsync(IEnumerable<T> entities)
+        public async Task AddRangeAsync(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            await _context.Set<T>().AddRangeAsync(entities);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<T> DeleteAsync(T entity)
+        public async Task<T> DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Deleted;
+            await _context.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<T> DeleteRangeAsync(IEnumerable<T> entities)
+        public async Task DeleteRangeAsync(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().RemoveRange(entities);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IQueryable<T>> GetAllAsync(bool isChangeTracking, Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includes)
+        public async Task<T> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<T> GetAsync(bool isChangeTracking, Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
+        public async Task<IQueryable<T>> GetAllAsync(bool isChangeTracking, Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = _context.Set<T>();
+
+            if (isChangeTracking)
+            {
+                query = predicate == null ? query : query.Where(predicate);
+
+                if(includes != null)
+                {
+                    foreach (var item in includes)
+                    {
+                        query = query.Include(item);
+                    }
+                }
+            }
+            else
+            {
+                query = predicate == null ? query : query.Where(predicate).AsNoTracking();
+                if (includes != null)
+                {
+                    foreach (var item in includes)
+                    {
+                        query = query.Include(item).AsNoTracking();
+                    }
+                }
+            }
+
+            return await Task.FromResult(query);
         }
 
-        public Task<T> GetByIdAsync(bool isChangeTracking, int id)
+        public async Task<T> GetAsync(bool isChangeTracking, Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = _context.Set<T>();
+
+            if(isChangeTracking)
+            {
+                query = query.Where(predicate);
+
+                if(includes != null)
+                {
+                    foreach (var item in includes)
+                    {
+                        query = query.Include(item);
+                    }
+                }
+            }
+            else
+            {
+                query = query.Where(predicate).AsNoTracking();
+                if (includes != null)
+                {
+                    foreach (var item in includes)
+                    {
+                        query = query.Include(item).AsNoTracking();
+                    }
+                }
+
+            }
+
+            return await query.FirstOrDefaultAsync();
+
         }
 
-        public Task<T> UpdateAsync(T entity)
+        public async Task<T> GetByIdAsync(bool isChangeTracking, int id)
         {
-            throw new NotImplementedException();
+            var query = _context.Set<T>();
+
+            if(!isChangeTracking)
+            {
+                query.AsNoTracking();
+            }
+            return await query.FindAsync(id);
         }
+
+       
     }
 }
