@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelerBlog.Persistence.Data;
 
@@ -11,9 +12,10 @@ using TravelerBlog.Persistence.Data;
 namespace TravelerBlog.Persistence.Migrations
 {
     [DbContext(typeof(TravelerBlogDbContext))]
-    partial class TravelerBlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220903100734_City_Entity_Deleted")]
+    partial class City_Entity_Deleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
