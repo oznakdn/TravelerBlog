@@ -107,7 +107,7 @@ namespace TravelerBlog.Persistence.Repository
 
         }
 
-        public async Task<T> GetByIdAsync(bool isChangeTracking, int id)
+        public async Task<T> GetByIdAsync(bool isChangeTracking, Guid id)
         {
             var query = _context.Set<T>();
 

@@ -14,7 +14,7 @@ namespace TravelerBlog.Core.Repository
 
         Task<IQueryable<T>> GetAllAsync(bool isChangeTracking, Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includes);
         Task<T> GetAsync(bool isChangeTracking, Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
-        Task<T> GetByIdAsync(bool isChangeTracking, int id);
+        Task<T> GetByIdAsync(bool isChangeTracking, Guid id);
 
 
 
