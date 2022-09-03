@@ -7,7 +7,7 @@ namespace TravelerBlog.WebUI.Areas.Management.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("AddCountry", "Country");
         }
     }
 }

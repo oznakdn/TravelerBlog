@@ -1,6 +1,7 @@
 
 using FluentValidation;
 using System.Reflection;
+using TravelerBlog.Application.MappingProfiles;
 using TravelerBlog.Application.Validations.AdviceValidators;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +18,7 @@ builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<Trave
 builder.Services.AddFluentValidationContainer();
 builder.Services.AddIocContainer();
 builder.Services.AddValidatorsFromAssemblyContaining(typeof(CreateAdviceValidator));
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(typeof(CountryProfiles));
 
 
 

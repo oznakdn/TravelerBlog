@@ -8,7 +8,7 @@ namespace TravelerBlog.Application.MappingProfiles
     {
         public CountryProfiles()
         {
-            CreateMap<CreateCountryDto, Country>().ReverseMap();
+            CreateMap<CreateCountryDto, Country>();
         }
     }
 }

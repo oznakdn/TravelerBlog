@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using AutoMapper;
+using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using TravelerBlog.Application.Repositories;
@@ -6,16 +7,20 @@ using TravelerBlog.Core.Dtos.CountryDto;
 
 namespace TravelerBlog.WebUI.Areas.Management.Controllers
 {
+
+    [Area("Management")]
     public class CountryController : Controller
     {
 
         private readonly ICountryRepository _countryRepository;
         private readonly IValidator<CreateCountryDto> _validator;
+        private readonly IMapper _mapper;
 
-        public CountryController(ICountryRepository countryRepository, IValidator<CreateCountryDto> validator)
+        public CountryController(ICountryRepository countryRepository, IValidator<CreateCountryDto> validator, IMapper mapper)
         {
             _countryRepository = countryRepository;
             _validator = validator;
+            _mapper = mapper;
         }
         public IActionResult Index()
         {
@@ -24,7 +29,7 @@ namespace TravelerBlog.WebUI.Areas.Management.Controllers
 
         public IActionResult AddCountry()
         {
-            return View();
+            return View(new CreateCountryDto());
         }
 
         [HttpPost]
@@ -44,8 +49,9 @@ namespace TravelerBlog.WebUI.Areas.Management.Controllers
                 return View(nameof(Index), createCountry);
             }
 
-            await _countryRepository.AddAsync(country);
-            return RedirectToAction("Index","Home");
+            var countryMapping = _mapper.Map<Country>(createCountry);
+            await _countryRepository.AddAsync(countryMapping);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
