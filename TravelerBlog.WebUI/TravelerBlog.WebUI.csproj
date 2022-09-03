@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,10 +17,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.8" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TravelerBlog.Application\TravelerBlog.Application.csproj" />
+    <ProjectReference Include="..\TravelerBlog.Persistence\TravelerBlog.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Management\Models\" />
   </ItemGroup>
 
 </Project>

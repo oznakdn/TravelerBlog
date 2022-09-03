@@ -7,13 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TravelerBlog.Persistence\TravelerBlog.Persistence.csproj" />
+    <Folder Include="Business\" />
+    <Folder Include="MappingProfiles\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Business\" />
-    <Folder Include="MappingProfiles\" />
-    <Folder Include="Validations\" />
+    <PackageReference Include="FluentValidation" Version="11.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TravelerBlog.Core\TravelerBlog.Core.csproj" />
+    <ProjectReference Include="..\TravelerBlog.Domain\TravelerBlog.Domain.csproj" />
   </ItemGroup>
 
 </Project>

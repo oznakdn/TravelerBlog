@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TravelerBlog.Application\TravelerBlog.Application.csproj" />
     <ProjectReference Include="..\TravelerBlog.Domain\TravelerBlog.Domain.csproj" />
   </ItemGroup>
 
