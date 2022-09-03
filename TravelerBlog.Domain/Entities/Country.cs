@@ -8,7 +8,7 @@ namespace TravelerBlog.Domain.Entities
     {
         public Country()
         {
-            Cities = new HashSet<City>();
+            Locations = new HashSet<Location>();
         }
 
         [Key]
@@ -16,8 +16,8 @@ namespace TravelerBlog.Domain.Entities
         public override Guid Id { get; set; }
         public string CountryName { get; set; }
         public FlagPicture FlagPicture { get; set; }
-        public ICollection<City> Cities { get; set; }
-
+       
+        public ICollection<Location> Locations { get; set; }
 
         [NotMapped]
         public override bool IsActive { get => base.IsActive; set => base.IsActive = value; }

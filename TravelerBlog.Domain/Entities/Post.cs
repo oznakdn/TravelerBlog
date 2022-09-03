@@ -14,6 +14,8 @@ namespace TravelerBlog.Domain.Entities
         public DateTime SendDate { get; set; } = DateTime.UtcNow;
         public override bool IsActive { get; set; } = false;
         public DateTime? ApproveDate { get; set; }
+
+        //[ForeignKey("UserId")]
         public Guid UserId { get; set; }
         public Guid LocationId { get; set; }
 

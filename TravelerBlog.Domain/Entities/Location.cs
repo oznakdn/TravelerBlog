@@ -20,11 +20,14 @@ namespace TravelerBlog.Domain.Entities
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
         public string LocationName { get; set; }
-        public Guid CityId { get; set; }
-        public City City { get; set; }
+        public Guid CountryId { get; set; }
+        public string City { get; set; }
+        public string? Ditrict { get; set; }
 
         public ICollection<Post> Posts { get; set; }
         public ICollection<LocationPicture> LocationPictures { get; set; }
         public ICollection<Vote> Votes { get; set; }
+        public Country Country { get; set; }
+
     }
 }
