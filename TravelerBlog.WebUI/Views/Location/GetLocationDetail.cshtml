@@ -1,0 +1,23 @@
+﻿@model TravelerBlog.Domain.Entities.Location
+
+    <div class="col-ld-2"></div>
+    <div class="col-lg-8">
+        <div class="card" style="width: 80rem;">
+            <img class="card-img-top" src="@Model.LocationPictures.Select(x=>x.FileName).FirstOrDefault()" style="width:auto; height:400px" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title text-center text-danger">@Model.LocationName</h5>
+                <h6 class="text-center">@Model.Country.CountryName/@Model.City/@Model.Ditrict</h6>
+                <p class="card-text text-center">@Model.Description</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-ld-2"></div>
