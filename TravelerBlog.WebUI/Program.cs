@@ -1,4 +1,7 @@
 
+using FluentValidation;
+using System.Reflection;
+using TravelerBlog.Application.Validations.AdviceValidators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +14,10 @@ builder.Services.AddDbContext<TravelerBlogDbContext>(options =>
 });
 
 builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<TravelerBlogDbContext>();
-builder.Services.AddFluentValidation();
+builder.Services.AddFluentValidationContainer();
 builder.Services.AddIocContainer();
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(CreateAdviceValidator));
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 
 
