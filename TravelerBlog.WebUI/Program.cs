@@ -1,18 +1,20 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using TravelerBlog.Domain.Entities;
-using TravelerBlog.Persistence.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<TravelerBlogDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("TravelerBlogConnection"));
 });
 
 builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<TravelerBlogDbContext>();
+builder.Services.AddFluentValidation();
+builder.Services.AddIocContainer();
+
+
 
 var app = builder.Build();
 
