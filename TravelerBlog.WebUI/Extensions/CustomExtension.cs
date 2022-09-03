@@ -20,16 +20,15 @@ namespace TravelerBlog.WebUI.Extensions
             return services;
         }
 
-        public static IServiceCollection AddFluentValidation (this IServiceCollection services)
+        public static IServiceCollection AddFluentValidationContainer (this IServiceCollection services)
         {
-            services.AddValidatorsFromAssemblyContaining(typeof(CreateAdviceValidator));
             services.AddScoped<IValidator<CreateAdviceDto>, CreateAdviceValidator>();
             services.AddScoped<IValidator<CreateCountryDto>, CreateCountryValidator>();
             services.AddScoped<IValidator<CreateCityDto>, CreateCityValidator>();
 
-
             return services;
         }
+       
 
     }
 }
