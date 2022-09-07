@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelerBlog.Persistence.Data;
 
@@ -11,9 +12,10 @@ using TravelerBlog.Persistence.Data;
 namespace TravelerBlog.Persistence.Migrations
 {
     [DbContext(typeof(TravelerBlogDbContext))]
-    partial class TravelerBlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220904072824_FavoriteAndUserPicture_classes_Deleted")]
+    partial class FavoriteAndUserPicture_classes_Deleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,7 +251,7 @@ namespace TravelerBlog.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7e21177b-f8dd-448b-9a42-55e7336b1881"),
-                            CreatedDate = new DateTime(2022, 9, 4, 7, 52, 45, 870, DateTimeKind.Utc).AddTicks(5323),
+                            CreatedDate = new DateTime(2022, 9, 4, 7, 28, 23, 601, DateTimeKind.Utc).AddTicks(7703),
                             FileName = "https://www.kitapgunu.com/u/kitapgunu/img/c/t/u/turk-bayragi-200x300cma8781fddae7a2d3d55e9dc27dfd4e861.jpg",
                             IsActive = true,
                             IsDeleted = false
@@ -360,7 +362,7 @@ namespace TravelerBlog.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e96ecdee-1207-4bc4-a03a-4fb1143b5f6e"),
-                            CreatedDate = new DateTime(2022, 9, 4, 7, 52, 45, 870, DateTimeKind.Utc).AddTicks(5419),
+                            CreatedDate = new DateTime(2022, 9, 4, 7, 28, 23, 601, DateTimeKind.Utc).AddTicks(7779),
                             FileName = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Pamukkale_02.jpg/1280px-Pamukkale_02.jpg",
                             IsActive = true,
                             IsDeleted = false,
@@ -369,7 +371,7 @@ namespace TravelerBlog.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8d65f867-353c-4afe-8dcb-be36012fb2f4"),
-                            CreatedDate = new DateTime(2022, 9, 4, 7, 52, 45, 870, DateTimeKind.Utc).AddTicks(5427),
+                            CreatedDate = new DateTime(2022, 9, 4, 7, 28, 23, 601, DateTimeKind.Utc).AddTicks(7810),
                             FileName = "https://i4.hurimg.com/i/hurriyet/75/1110x740/5bc6d94218c773222c635a60.jpg",
                             IsActive = true,
                             IsDeleted = false,
@@ -378,7 +380,7 @@ namespace TravelerBlog.Persistence.Migrations
                         new
                         {
                             Id = new Guid("219e963c-1ae2-4b03-93fe-9cde43df4df6"),
-                            CreatedDate = new DateTime(2022, 9, 4, 7, 52, 45, 870, DateTimeKind.Utc).AddTicks(5437),
+                            CreatedDate = new DateTime(2022, 9, 4, 7, 28, 23, 601, DateTimeKind.Utc).AddTicks(7814),
                             FileName = "https://istanbeautiful.com/tr/wp-content/uploads/beylerbeyi-palace.jpg",
                             IsActive = true,
                             IsDeleted = false,
@@ -424,44 +426,6 @@ namespace TravelerBlog.Persistence.Migrations
                     b.HasIndex("LocationId");
 
                     b.ToTable("Posts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("84ae7470-0ad0-4bdb-bbc7-e5ff80a70167"),
-                            Content = "Ayrıca arama motorlarında 'lorem ipsum' anahtar sözcükleri ile arama yapıldığında henüz tasarım aşamasında olan çok sayıda site listelenir. Yıllar içinde, bazen kazara, bazen bilinçli olarak (örneğin mizah katılarak), çeşitli sürümleri geliştirilmiştir.",
-                            EmailAddress = "john@mail.com",
-                            IsActive = false,
-                            IsDeleted = false,
-                            LocationId = new Guid("2db8c9d8-40a1-445c-bd3e-f126cdf49352"),
-                            Name = "Traveler Boy",
-                            SendDate = new DateTime(2022, 9, 4, 7, 52, 45, 870, DateTimeKind.Utc).AddTicks(5475),
-                            Title = "This is Pamukkale's post title"
-                        },
-                        new
-                        {
-                            Id = new Guid("87e7af76-4d0d-4c78-bd78-5d275445f647"),
-                            Content = "Ayrıca arama motorlarında 'lorem ipsum' anahtar sözcükleri ile arama yapıldığında henüz tasarım aşamasında olan çok sayıda site listelenir. Yıllar içinde, bazen kazara, bazen bilinçli olarak (örneğin mizah katılarak), çeşitli sürümleri geliştirilmiştir.",
-                            EmailAddress = "john@mail.com",
-                            IsActive = false,
-                            IsDeleted = false,
-                            LocationId = new Guid("7583ba2d-1c79-48d0-b49d-fc973aa0a808"),
-                            Name = "Traveler Boy",
-                            SendDate = new DateTime(2022, 9, 4, 7, 52, 45, 870, DateTimeKind.Utc).AddTicks(5546),
-                            Title = "This is Topkapi Sarayi's post title"
-                        },
-                        new
-                        {
-                            Id = new Guid("65730b92-fa1c-49e4-8c32-4fad8d941540"),
-                            Content = "Ayrıca arama motorlarında 'lorem ipsum' anahtar sözcükleri ile arama yapıldığında henüz tasarım aşamasında olan çok sayıda site listelenir. Yıllar içinde, bazen kazara, bazen bilinçli olarak (örneğin mizah katılarak), çeşitli sürümleri geliştirilmiştir.",
-                            EmailAddress = "john@mail.com",
-                            IsActive = false,
-                            IsDeleted = false,
-                            LocationId = new Guid("3714d51f-f691-4c53-a815-9a136a6c3821"),
-                            Name = "Traveler Boy",
-                            SendDate = new DateTime(2022, 9, 4, 7, 52, 45, 870, DateTimeKind.Utc).AddTicks(5552),
-                            Title = "This is Beylerbeyi Sarayi's post title"
-                        });
                 });
 
             modelBuilder.Entity("TravelerBlog.Domain.Entities.User", b =>
