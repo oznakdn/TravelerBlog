@@ -20,6 +20,7 @@ namespace TravelerBlog.WebUI.Controllers
         {
             return View();
         }
+
         public async Task<IActionResult> GetLocationDetail(Guid id)
         {
             ViewBag.locationId = id;

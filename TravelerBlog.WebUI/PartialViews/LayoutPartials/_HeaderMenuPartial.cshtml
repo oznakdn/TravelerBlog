@@ -17,8 +17,10 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav justify-content-center">
                         <li class="nav-item active"><a class="nav-link" asp-action="Index" asp-controller="Home">Home</a></li>
+                        <!--Countries-->
                         @await Component.InvokeAsync("CountriesListComponent")
-                        <li class="nav-item"><a class="nav-link" href="category.html">Locations</a>
+                        <!--Locations-->
+                        @await Component.InvokeAsync("LocationHeaderListComponent")
                         <li class="nav-item"><a class="nav-link" href="contact.html">Advice</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
