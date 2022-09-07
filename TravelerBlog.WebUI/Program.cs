@@ -6,8 +6,7 @@ using TravelerBlog.Application.Validations.AdviceValidators;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-    //.AddRazorRuntimeCompilation();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddDbContext<TravelerBlogDbContext>(options =>
 {

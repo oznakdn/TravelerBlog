@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -28,6 +29,9 @@
 
   <ItemGroup>
     <Folder Include="Areas\Management\Models\" />
+    <Folder Include="PartialViews\LocationPartials\" />
+    <Folder Include="wwwroot\images\locationImages\" />
+    <Folder Include="wwwroot\images\flagImages\" />
   </ItemGroup>
 
 </Project>
