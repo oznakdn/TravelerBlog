@@ -12,10 +12,10 @@ namespace TravelerBlog.WebUI.Components.CountryComponents
             this.countryRepositorcy = countryRepositorcy;
         }
 
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            var coutries =countryRepositorcy.GetAllAsync(false).Result;
-            var result = coutries.ToList();
+            var coutries =await countryRepositorcy.GetAllAsync(false);
+            var result =await coutries.ToListAsync();
             return View(result);
         }
     }

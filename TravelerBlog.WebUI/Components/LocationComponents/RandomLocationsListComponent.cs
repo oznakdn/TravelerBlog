@@ -12,10 +12,10 @@ namespace TravelerBlog.WebUI.Components.LocationComponents
             _locationRepository = locationRepository;
         }
 
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            var locations = _locationRepository.GetAllWithIncludeAndThanInclude(false).Result;
-            var result = locations.OrderBy(l => l.Posts.Count).Take(3).ToList();
+            var locations =await _locationRepository.GetAllAsync(false,null,l=>l.Posts,l=>l.LocationPictures);
+            var result =await locations.OrderBy(l => l.Posts.Count).Take(3).ToListAsync();
             return View(result);
 
         }
