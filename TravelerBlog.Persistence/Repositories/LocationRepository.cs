@@ -14,13 +14,13 @@ namespace TravelerBlog.Persistence.Repositories
         {
             if(isChangeTracking)
             {
-               return predicate == null ? await _context.Locations.Include(p => p.LocationPictures).Include(p => p.Posts).ThenInclude(u => u.User).ToListAsync()
-                                  : await _context.Locations.Where(predicate).Include(p => p.LocationPictures).Include(p => p.Posts).ThenInclude(u => u.User).ToListAsync();
+               return predicate == null ? await _context.Locations.Include(p => p.LocationPictures).Include(p => p.Posts).ToListAsync()
+                                  : await _context.Locations.Where(predicate).Include(p => p.LocationPictures).Include(p => p.Posts).ToListAsync();
             }
             else
             {
-                return predicate == null ? await _context.Locations.Include(p => p.LocationPictures).Include(p => p.Posts).ThenInclude(u => u.User).AsNoTracking().ToListAsync()
-                                  : await _context.Locations.Where(predicate).Include(p => p.LocationPictures).Include(p => p.Posts).ThenInclude(u => u.User).AsNoTracking().ToListAsync();
+                return predicate == null ? await _context.Locations.Include(p => p.LocationPictures).Include(p => p.Posts).AsNoTracking().ToListAsync()
+                                  : await _context.Locations.Where(predicate).Include(p => p.LocationPictures).Include(p => p.Posts).AsNoTracking().ToListAsync();
             }
         }
     }
