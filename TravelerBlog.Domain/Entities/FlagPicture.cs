@@ -7,7 +7,7 @@ namespace TravelerBlog.Domain.Entities
     public class FlagPicture:EntityBase
     {
         [Key,ForeignKey("Country")]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
         public string FileName { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

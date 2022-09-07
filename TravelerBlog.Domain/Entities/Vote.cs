@@ -7,7 +7,7 @@ namespace TravelerBlog.Domain.Entities
     public class Vote:EntityBase
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
         [Range(1,5)]
         public byte Rating { get; set; }

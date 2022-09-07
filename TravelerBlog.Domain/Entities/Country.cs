@@ -12,7 +12,7 @@ namespace TravelerBlog.Domain.Entities
         }
 
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
         public string CountryName { get; set; }
         public FlagPicture FlagPicture { get; set; }

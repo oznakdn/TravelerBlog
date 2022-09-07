@@ -17,7 +17,7 @@ namespace TravelerBlog.Domain.Entities
         }
 
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
         public string LocationName { get; set; }
         public Guid CountryId { get; set; }

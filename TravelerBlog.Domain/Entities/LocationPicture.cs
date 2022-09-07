@@ -7,7 +7,7 @@ namespace TravelerBlog.Domain.Entities
     public class LocationPicture:EntityBase
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
         public string FileName { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

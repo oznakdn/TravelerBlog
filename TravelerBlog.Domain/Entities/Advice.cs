@@ -7,13 +7,12 @@ namespace TravelerBlog.Domain.Entities
     public class Advice:EntityBase
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get ; set; }
         public string LocationTitle { get; set; }
         public DateTime AdviceDate { get; set; } = DateTime.UtcNow;
         public string? PhotoUrl { get; set; }
-        public Guid UserId { get; set; }
-        public User User { get; set; }
-
+        public string Name { get; set; }
+        public string? EmailAddress { get; set; }
     }
 }

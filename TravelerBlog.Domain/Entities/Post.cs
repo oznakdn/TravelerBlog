@@ -7,19 +7,16 @@ namespace TravelerBlog.Domain.Entities
     public class Post : EntityBase
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public override Guid Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime SendDate { get; set; } = DateTime.UtcNow;
         public override bool IsActive { get; set; } = false;
         public DateTime? ApproveDate { get; set; }
-
-        //[ForeignKey("UserId")]
-        public Guid UserId { get; set; }
         public Guid LocationId { get; set; }
-
-        public User User { get; set; }
+        public string Name { get; set; }
+        public string? EmailAddress { get; set; }
         public Location Location { get; set; }
 
         [NotMapped]
